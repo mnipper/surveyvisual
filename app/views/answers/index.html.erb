@@ -1,0 +1,8 @@
+<ul>
+<% @answers.each do |answer| %>
+  <li><%= answer.question.first.screen_text %></li>
+  <ul>
+    <li><%= answer.result_answer %></li>
+  </ul>
+<% end %>
+</ul>
