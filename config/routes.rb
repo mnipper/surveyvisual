@@ -1,6 +1,8 @@
 SurveyVisual::Application.routes.draw do
 
 resources :questions
-resources :answers
+resources :results do
+  resources :answers
+end
 
 end
