@@ -3,3 +3,16 @@
   <li><%= link_to result.result_id, participant_result_answers_path(@participant, result.result_id) %></li>
 <% end %>
 </ul>
+
+<ul>
+<% @results.each do |result| %>
+  <% result.answers.each do |answer| %>
+    <li><%= answer.question.first.screen_text %></li>
+    <ul>
+    <% answer.question.first.answers.each do |answer| %>
+      <li><%= answer.response_date %> <%= answer.result_answer %></li>
+    <% end %>
+    </ul>
+  <% end %>
+<% end %>
+</ul>
