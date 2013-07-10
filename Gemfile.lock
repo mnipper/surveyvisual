@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/anjlab/bootstrap-rails.git
+  revision: 7ae5424fa38bb0e963a829e5bbb084c5f523fc4b
+  branch: 3.0.0
+  specs:
+    anjlab-bootstrap-rails (3.0.0.0.alpha1)
+      railties (>= 3.0)
+      sass (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -140,6 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anjlab-bootstrap-rails!
   coffee-rails (~> 4.0.0)
   debugger
   isurvey (~> 0.1.2)
