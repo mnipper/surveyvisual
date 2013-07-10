@@ -1,0 +1,5 @@
+<ul>
+<% @results.each do |result| %>
+  <li><%= link_to result.result_id, participant_result_answers_path(@participant, result.result_id) %></li>
+<% end %>
+</ul>

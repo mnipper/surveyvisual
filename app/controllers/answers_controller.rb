@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   def index
-    @answers = Isurvey::Answer.all
+    @answers = Isurvey::Answer.by_result_id(params[:result_id])
 
     respond_to do |format|
       format.html
