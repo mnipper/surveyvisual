@@ -49,3 +49,4 @@ gem 'debugger', group: [:development, :test]
 gem 'less-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
+gem 'rickshaw_rails'

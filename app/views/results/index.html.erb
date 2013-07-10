@@ -22,8 +22,36 @@
   </div>
 </div>
 
+<div id="chart" align="center"></div>
+<script>
+  var graph = new Rickshaw.Graph({
+        element: document.querySelector("#chart"),
+        renderer: 'line',
+        width: 600,
+        height: 200,
+        series: [{
+                data: [ { x: 0, y: 22.007723 }, { x: 1, y: 50}, { x: 2, y: 60}, {x: 3, y: 30}, {x: 4, y: 50} ],
+                color: 'steelblue'
+        }]
+  });
+
+  var yAxis = new Rickshaw.Graph.Axis.Y({
+    graph: graph
+  });
+
+  var xAxis = new Rickshaw.Graph.Axis.X({
+    graph: graph
+  });
+
+  graph.render();
+  xAxis.render();
+  yAxis.render();
+</script>
+
+
 <% @results.each do |result| %>
-  <% result.answers.each do |answer| %>
+  <% #result.answers.each do |answer| %>
+  <% answer = result.answers.first %>
   <table class="table table-hover">
     <caption>
       <p class="lead"><%= answer.question.first.screen_text %></p>
@@ -50,5 +78,5 @@
     <% end %>
     </tbody>
   </table>
-  <% end %>
+  <% #end %>
 <% end %>
