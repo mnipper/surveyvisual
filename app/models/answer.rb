@@ -4,7 +4,10 @@ class Answer
   field :result_answer, type: String 
   field :response_date, type: DateTime 
 
-  has_one :question
   belongs_to :participant
   belongs_to :result
+
+  def question
+    Question.where(screen_id: self.screen_id)
+  end
 end
