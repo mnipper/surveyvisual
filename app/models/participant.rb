@@ -1,4 +1,10 @@
 class Participant
+  include Mongoid::Document
+  field :_id, type: Integer 
+
+  has_many :answers
+  has_many :results
+
   def self.results(participant)
     results = []
     Isurvey::Result.all.each do |result|
@@ -17,7 +23,6 @@ class Participant
     end.uniq
   end
 
-  private
   def self.participant_screen_id
     '431426'
   end

@@ -5,5 +5,6 @@ class Answer
   field :response_date, type: DateTime 
 
   has_one :question
-
+  belongs_to :participant
+  belongs_to :result
 end
