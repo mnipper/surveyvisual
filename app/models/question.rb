@@ -1,3 +1,6 @@
-class Question < Isurvey::Question
+class Question
+  include Mongoid::Document
+  field :screen_id, type: Integer 
+  field :screen_text, type: String 
 
 end
