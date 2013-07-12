@@ -1,8 +1,7 @@
 class ResultsController < ApplicationController
   def index
-    @participant = params[:participant_id] 
-    #@results = Participant.results(@participant) 
-    @results = Result.all
+    @participant = Participant.find_by(_id: params[:participant_id]) 
+    @results = @participant.results 
 
     respond_to do |format|
       format.html
