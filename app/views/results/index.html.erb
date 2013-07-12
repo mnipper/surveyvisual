@@ -49,22 +49,26 @@
 </script>
 
 
-<% @results.each do |result| %>
-  <% #result.answers.each do |answer| %>
-  <% answer = result.answers.first %>
+<%# @results.each do |result| %>
+  <% Isurvey::Question.all.each do |question| %>
+  <% next if question.answers.empty? %>
   <table class="table table-hover">
     <caption>
-      <p class="lead"><%= answer.question.first.screen_text %></p>
+      <p class="lead"><%= question.screen_text %></p>
     </caption>
     <thead>
       <tr>
+        <th>Result</th>
         <th>Datetime</th>
         <th class="pull-right">Response</th>
       </tr>
     </thead>
     <tbody>
-    <% answer.question.first.answers.each do |answer| %>
+    <% question.answers.each do |answer| %>
       <tr>
+        <td>
+          <%= link_to answer.result_id, participant_result_answers_path(@participant, answer.result_id) %>
+        </td>
         <td>
           <span class="label">
           <i class="icon-time"></i>
@@ -78,5 +82,6 @@
     <% end %>
     </tbody>
   </table>
-  <% #end %>
-<% end %>
+  <hr />
+  <% end %>
+<%# end %>

@@ -1,11 +1,15 @@
+require 'sidekiq/web'
+
 SurveyVisual::Application.routes.draw do
 
-resources :questions
+  resources :questions
 
-resources :participants do
-  resources :results do
-    resources :answers
+  resources :participants do
+    resources :results do
+      resources :answers
+    end
   end
-end
+
+  mount Sidekiq::Web, at: '/sidekiq'
 
 end

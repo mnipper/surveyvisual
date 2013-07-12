@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Isurvey::Question.all
+    @questions = Question.all
 
     respond_to do |format|
       format.html

@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
   def index
-    @participants = participants
+    @participants = Participant.all
   end
 end

@@ -1,7 +1,7 @@
 class ResultsController < ApplicationController
   def index
     @participant = params[:participant_id] 
-    @results = results_by_participant(@participant) 
+    @results = Participant.results(@participant) 
 
     respond_to do |format|
       format.html
