@@ -4,11 +4,7 @@ class Result
   field :participant_id, type: Integer
 
   def answers
-    answers_arr = []
-    Answer.find_by(result_id: self.result_id) do |answer|
-      answers_arr << answer
-    end
-    answers_arr
+    Answer.where(result_id: self.result_id).entries
   end
 
   def participant

@@ -3,11 +3,7 @@ class Participant
   field :_id, type: Integer 
 
   def results
-    results_arr = []
-    Result.find_by(participant_id: _id) do |result|
-      results_arr << result
-    end
-    results_arr
+    Result.where(participant_id: self._id).entries
   end
 
   def self.participant_screen_id

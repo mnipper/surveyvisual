@@ -49,8 +49,7 @@
 </script>
 
 
-<%# @results.each do |result| %>
-  <% Isurvey::Question.all.each do |question| %>
+  <% Question.each do |question| %>
   <% next if question.answers.empty? %>
   <table class="table table-hover">
     <caption>
@@ -72,7 +71,7 @@
         <td>
           <span class="label">
           <i class="icon-time"></i>
-            <%= DateTime.strptime(answer.response_date, '%Y-%m-%d %H:%M:%S').to_formatted_s(:long_ordinal) %>
+            <%= answer.response_date.to_formatted_s(:long_ordinal) %>
           </span>
         </td>
         <td>
@@ -84,4 +83,3 @@
   </table>
   <hr />
   <% end %>
-<%# end %>

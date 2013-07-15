@@ -4,10 +4,6 @@ class Question
   field :screen_text, type: String 
 
   def answers
-    answers_arr = []
-    Answer.find_by(screen_id: self.screen_id) do |answer|
-      answers_arr << answer
-    end
-    answers_arr
+    Answer.where(screen_id: self.screen_id).entries
   end
 end

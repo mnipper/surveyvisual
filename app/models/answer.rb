@@ -6,14 +6,14 @@ class Answer
   field :result_id, type: Integer
 
   def question
-    Question.find_by(screen_id: self.screen_id)
+    Question.find_by(screen_id: answer.screen_id)
+  end
+
+  def participant
+    result.participant
   end
 
   def result
     Result.find_by(result_id: self.result_id)
-  end
-
-  def participant
-    Participant.find_by(_id: result.participant_id)
   end
 end
