@@ -32,8 +32,8 @@ class IsurveyWorker
     Isurvey::Answer.all.each do |answer|
       Answer.find_or_create_by(screen_id:       answer.screen_id,
                                result_answer:   answer.result_answer,
-                               response_date:   answer.response_date,
-                               result_id:       answer.result_id)
+                               result_id:       answer.result_id,
+                               response_date:   answer.response_date)
     end
   end
 
