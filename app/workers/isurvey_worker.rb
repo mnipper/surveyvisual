@@ -41,7 +41,7 @@ class IsurveyWorker
     Answer.where(screen_id: Participant.participant_screen_id).each do |answer|
       participant = Participant.find_or_create_by(_id: answer.result_answer)
       result = Result.find_by(result_id: answer.result_id)
-      result.participant_id = participant._id
+      result.update_attributes!(participant_id: participant._id)
     end
   end
 end

@@ -9,7 +9,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'isurvey', '0.1.3'
+gem 'isurvey', '0.1.4'
 gem 'less-rails'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'

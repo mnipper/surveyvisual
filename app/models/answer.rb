@@ -6,7 +6,7 @@ class Answer
   field :result_id, type: Integer
 
   def question
-    Question.find_by(screen_id: answer.screen_id)
+    Question.find_by(screen_id: self.screen_id)
   end
 
   def participant
@@ -15,5 +15,9 @@ class Answer
 
   def result
     Result.find_by(result_id: self.result_id)
+  end
+
+  def numeric?
+    self.result_answer =~ /^\d*[\.]{0,1}\d*$/
   end
 end

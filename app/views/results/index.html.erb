@@ -49,37 +49,7 @@
 </script>
 
 
-  <% Question.each do |question| %>
-  <% next if question.answers.empty? %>
-  <table class="table table-hover">
-    <caption>
-      <p class="lead"><%= question.screen_text %></p>
-    </caption>
-    <thead>
-      <tr>
-        <th>Result</th>
-        <th>Datetime</th>
-        <th class="pull-right">Response</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% question.answers.each do |answer| %>
-      <tr>
-        <td>
-          <%= link_to answer.result_id, participant_result_answers_path(@participant, answer.result_id) %>
-        </td>
-        <td>
-          <span class="label">
-          <i class="icon-time"></i>
-            <%= answer.response_date.to_formatted_s(:long_ordinal) %>
-          </span>
-        </td>
-        <td>
-          <p class="pull-right"><%= answer.result_answer %></p>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-  <hr />
-  <% end %>
+<% Question.each do |question| %>
+  <% next if question.answers.empty? or question.screen_text.blank? %>
+  <%= render partial: 'question', object: question %>
+<% end %>
