@@ -20,4 +20,8 @@ class Answer
   def numeric?
     self.result_answer =~ /^\d*[\.]{0,1}\d*$/
   end
+
+  def categorical?
+    !self.numeric?
+  end
 end

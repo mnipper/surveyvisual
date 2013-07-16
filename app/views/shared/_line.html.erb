@@ -1,0 +1,33 @@
+<% if line.is_a? Array %>
+  <% defined?(@chart_index) ? @chart_index += 1 : @chart_index = 1 %>
+  <div id="chart_<%= @chart_index %>" align="center"></div>
+  <script>
+    var graph = new Rickshaw.Graph({
+          element: document.querySelector("#chart_<%= @chart_index %>"),
+          renderer: 'line',
+          width: 600,
+          height: 200,
+          series: [{
+                  data: [
+                  <% line.each_with_index do |item, n| %> 
+                    {x: <%= n %>, y: <%= item.result_answer %>},
+                  <% end %>
+                  ],
+
+                  color: 'steelblue'
+          }]
+    });
+
+    var yAxis = new Rickshaw.Graph.Axis.Y({
+      graph: graph
+    });
+
+    var xAxis = new Rickshaw.Graph.Axis.X({
+      graph: graph
+    });
+
+    graph.render();
+    xAxis.render();
+    yAxis.render();
+  </script>
+<% end %>
