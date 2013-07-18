@@ -19,6 +19,10 @@ gem 'sinatra'
 gem 'slim'
 gem 'mongoid', '~> 4.0.0', :git => 'git://github.com/mongoid/mongoid.git', :branch => 'master'
 gem 'whenever'
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'debugger'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -31,4 +35,3 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-gem 'debugger', group: [:development, :test]
