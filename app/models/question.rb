@@ -10,4 +10,8 @@ class Question
   def numeric_answers?
     answers.first.numeric?
   end
+
+  def stats
+    StatFactory.stats(self)
+  end
 end

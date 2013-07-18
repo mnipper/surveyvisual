@@ -24,4 +24,8 @@ class Answer
   def categorical?
     !self.numeric?
   end
+
+  def stats
+    StatFactory.stats(question)
+  end
 end
