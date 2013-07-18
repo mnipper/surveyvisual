@@ -31,6 +31,17 @@
               </td>
             </tr>
           <% end %>
+          <% question.stats.each_pair do |key, value| %>
+            <tr class="info">
+              <td>
+                <strong><%= key.capitalize %></strong>
+              </td>
+              <td></td>
+              <td>
+                <p class="pull-right"><%= value %></p>
+              </td>
+            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>

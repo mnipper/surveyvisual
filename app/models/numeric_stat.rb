@@ -5,15 +5,15 @@ class NumericStat
 
     stats = Hash.new
     @question = question
-    [:average, :sample_variance].each do |stat|
-      stats[stat] = self.send(stat)
+    [:sample_mean, :sample_variance].each do |stat|
+      stats[stat] = self.send(stat).round(3)
     end
     stats
   end
 
   ## SHOULD REPLACE THESE WITH R CODE ##
 
-  def self.average
+  def self.sample_mean
     sum = 0.0
     @question.answers.each { |answer| sum += answer.result_answer.to_f }
     sum /= @question.answers.length
@@ -22,7 +22,7 @@ class NumericStat
    def self.sample_variance
     variance = 0.0
     @question.answers.each do |answer| 
-      variance += (answer.result_answer.to_f - self.average) ** 2
+      variance += (answer.result_answer.to_f - self.sample_mean) ** 2
     end
     variance /= (@question.answers.length - 1)
    end
