@@ -8,6 +8,6 @@ class Result
   end
 
   def participant
-    Participant.find_by(participant_id: self.participant_id)
+    Participant.find_by(_id: self.participant_id)
   end
 end

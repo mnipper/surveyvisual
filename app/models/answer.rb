@@ -4,6 +4,7 @@ class Answer
   field :result_answer, type: String 
   field :response_date, type: String 
   field :result_id, type: Integer
+  field :participant_id, type: Integer
 
   def question
     Question.find_by(screen_id: self.screen_id)

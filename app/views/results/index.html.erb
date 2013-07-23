@@ -2,5 +2,5 @@
 
 <% Question.each do |question| %>
   <% next if question.answers.empty? or question.screen_text.blank? %>
-  <%= render partial: 'question', object: question %>
+  <%= render partial: 'questions/question', object: question %>
 <% end %>

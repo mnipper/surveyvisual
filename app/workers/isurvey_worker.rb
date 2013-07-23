@@ -43,5 +43,9 @@ class IsurveyWorker
       result = Result.find_by(result_id: answer.result_id)
       result.update_attributes!(participant_id: participant._id)
     end
+
+    Answer.each do |answer|
+      answer.update_attributes!(participant_id: answer.participant._id)
+    end
   end
 end

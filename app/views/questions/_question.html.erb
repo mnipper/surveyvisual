@@ -15,7 +15,7 @@
             </tr>
           </thead>
           <tbody>
-          <% question.answers.each do |answer| %>
+          <% question.answers(participant_id: @participant._id).each do |answer| %>
             <tr>
               <td>
                 <%= link_to answer.result_id, participant_result_answers_path(@participant, answer.result_id) %>
