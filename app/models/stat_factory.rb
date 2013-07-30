@@ -3,6 +3,7 @@ class StatFactory
     if question.numeric_answers?
       NumericStat.stats(question)
     else
+      # Placeholder for categorical stats
       Hash.new
     end
   end
