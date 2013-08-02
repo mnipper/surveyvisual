@@ -2,8 +2,8 @@
 
 Set your iSurvey Credentials as environment variables.
 ```
-export ISURVEY_COMPANY_IDENTIFIER=00000000
-export ISURVEY_SURVEY_PASSWORD=0000000000
+$ export ISURVEY_COMPANY_IDENTIFIER=00000000
+$ export ISURVEY_SURVEY_PASSWORD=0000000000
 ```
 
 
