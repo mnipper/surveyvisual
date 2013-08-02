@@ -1,5 +1,12 @@
 # Getting started
 
+Set your iSurvey Credentials as environment variables.
+`
+export ISURVEY_COMPANY_IDENTIFIER=000000000
+export ISURVEY_SURVEY_PASSWORD=0000000000
+`
+
+
 Install mongodb:
 http://docs.mongodb.org/manual/tutorial/install-mongodb-on-debian-or-ubuntu-linux/
 
