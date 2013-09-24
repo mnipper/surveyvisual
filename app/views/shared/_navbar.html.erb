@@ -1,0 +1,34 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <%= link_to 'AdaptLab', root_path, class: 'brand' %>
+    <ul class="nav pull-right">
+      <li>
+        <%= link_to refresh_participants_path do %>
+          <i class="icon-refresh"></i> Force Refresh
+        <% end %>
+      </li>
+      <% if @results %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Result<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+              <% @results.each do |result| %>
+                <li>
+                  <%= link_to result.result_id, participant_result_answers_path(@participant, result.result_id) %>
+                </li>
+              <% end %>
+              <li class="divider"></li>
+              <li><%= link_to 'Inspect', participant_results_path(@participant) %>
+          </ul>
+        </li>
+      <% end %>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Participant <span class="badge badge-info"><%= @participant ? @participant._id : 'All' %></span><b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <% Participant.each do |participant| %>
+            <li><%= link_to participant._id, participant_path(participant) %></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

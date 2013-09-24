@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <tr>
+    <th>Result ID</th>
+    <th>Result Time</th>
+    <th>First Response</th>
+    <th>Last Response</th>
+  </tr>
+  <% @participant.results.each do |result| %>
+    <tr>
+      <td><%= link_to result.result_id, participant_result_answers_path(@participant, result.result_id) %></td>
+      <td><%= result.result_time %></td>
+      <td><%= result.answers.last.response_date %></td>
+      <td><%= result.answers.first.response_date %></td>
+    </tr>
+  <% end %>
+</table>

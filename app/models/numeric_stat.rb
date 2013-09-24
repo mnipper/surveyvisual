@@ -11,8 +11,6 @@ class NumericStat
     stats
   end
 
-  ## SHOULD REPLACE THESE WITH R CODE ##
-
   def self.sample_mean
     sum = 0.0
     @question.answers.each { |answer| sum += answer.result_answer.to_f }
@@ -24,6 +22,6 @@ class NumericStat
     @question.answers.each do |answer| 
       variance += (answer.result_answer.to_f - self.sample_mean) ** 2
     end
-    variance /= (@question.answers.length - 1)
+    variance /= (@question.answers.length)
    end
 end
