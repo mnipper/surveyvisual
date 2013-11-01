@@ -1,19 +1,12 @@
 <table class="table table-hover">
   <tr>
     <th>Participant</th>
-    <th>Response Rate</th>
+    <th>Responses</th>
     <th>Last Response</th>
   </tr>
   <% @participants.each do |participant| %>
-    <% if participant.response_rate < 0.5 %>
-      <tr class="error">
-    <% elsif participant.response_rate < 0.8 %>
-      <tr class="warning">
-    <% else %>
-      <tr class="success">
-    <% end %>
       <td><%= link_to participant._id, participant_path(participant) %></td>
-      <td><%= participant.response_rate %></td>
+      <td><%= participant.results.count %></td>
       <td><%= participant.results.last.last_result_time %></td>
     </tr>
   <% end %>
